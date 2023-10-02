@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row header">
+
+    </div>
+
+    <div class="row">
+
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="list-group col col-xl-8">
+            <a href="#" *ngFor="let ship of ships" class="list-group-item list-group-item-action ships my-2 text-secondary rounded py-2 ">
+                <div class="d-flex w-100 justify-content-between pt-2 pb-1">
+                  <h6 class="mb-1">{{ ship.name | uppercase }}</h6>
+                </div>
+                <div class="pt-1 pb-2">
+                    <small>{{ ship.model }}</small>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+</div>
+

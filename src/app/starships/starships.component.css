@@ -1,0 +1,11 @@
+.header {
+    height: 250px;
+}
+
+a.list-group-item {
+    border: none;
+  }
+
+.ships{
+    background-color: #151515;
+}
