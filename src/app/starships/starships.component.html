@@ -7,9 +7,11 @@
 
     </div>
 
-    <div class="row justify-content-center">
+    <div *ngIf="hideList" class="row justify-content-center">
         <div class="list-group col col-xl-8">
-            <a href="#" *ngFor="let ship of ships" class="list-group-item list-group-item-action ships my-2 text-secondary rounded py-2 ">
+            <a href="#" *ngFor="let ship of ships; let i = index" 
+            class="list-group-item list-group-item-action ships my-2 text-secondary rounded py-2"
+            (click)="showCard = true; hideList = false; getShipCard(ship)">
                 <div class="d-flex w-100 justify-content-between pt-2 pb-1">
                   <h6 class="mb-1">{{ ship.name | uppercase }}</h6>
                 </div>
@@ -20,6 +22,34 @@
 
         </div>
     </div>
+
+
+    <div *ngIf="showCard" class="card ships mb-3">
+        <div class="row g-0">
+          <div class="col-md-6">
+            <img [src]="this.getstarshipsservice.imageUrl" class="img-fluid rounded-start" alt="hola">
+          </div>
+          <div class="col-md-6">
+            <div class="card-body text-secondary">
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn-close" aria-label="Close" (click)="showCard = false; hideList = true"></button>
+                </div>
+              <h5 class="card-title">{{ nave.name | uppercase }}</h5>
+              <p class="card-text">{{ nave.model }}</p>
+              
+              <p class="card-text">Length: {{ nave.length }} m</p>
+              <p class="card-text">Vehicle Class: {{ nave.vehicle_class }}</p>
+              <p class="card-text">Consumables: {{ nave.consumables }}</p>
+              <p class="card-text">Cargo Capacity: {{ nave.cargo_capacity }} kg</p>
+
+              <p class="card-text">Crew: {{ nave.crew }}</p>
+              <p class="card-text">Paseengers: {{ nave.passengers }}</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
 
 </div>
 

@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
 export class GetstarshipsService {
   
   private url = 'https://swapi.py4e.com/api/starships/';
+  imageUrl: string = '';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -15,6 +16,14 @@ export class GetstarshipsService {
   getStarShips() {
     return this.httpClient.get(this.url);
   }
+
+  getShipImg(shipId:number){
+
+    this.imageUrl = `https://starwars-visualguide.com/assets/img/starships/${shipId}.jpg`;
+    
+    return this.httpClient.get(this.imageUrl)
+  }
+
 
 
 }

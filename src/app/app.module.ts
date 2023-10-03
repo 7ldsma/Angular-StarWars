@@ -19,7 +19,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    StarshipsComponent
+    StarshipsComponent,
   ],
   imports: [
     BrowserModule,
