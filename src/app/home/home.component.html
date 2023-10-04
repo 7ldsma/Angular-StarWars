@@ -1,1 +1,45 @@
-<p>home works!</p>
+<div class="intro px-4 d-flex align-items-center just justify-content-center">
+    <div class="row justify-content-center">
+        <div class="d-grid col-12 text-center mx-auto">
+            
+            <form formGroup="logInForm" needs-validation novalidate (submit)="save($event)">
+            
+                <div>
+                    Username (Email): <br/>
+                    <input type="text" formControlName = "client">
+                </div>
+                <div *ngIf="this.clientField && this.clientField.errors && this.clientField.touched">
+                    <small class="text-danger errormsg" *ngIf="this.clientField.hasError('required')">
+                        A Client name is required.
+                    </small> 
+                    <small class="text-danger errormsg" *ngIf="this.clientField.hasError('pattern')">
+                        A Client name should be of at least 3 characters.
+                    </small> 
+                </div>
+
+
+                <div>
+                    Password: <br/>
+                    <input type="text" formControlName = "name">
+                </div>
+                <div *ngIf="this.nameField && this.nameField.errors && this.nameField.touched">
+                    <small class="text-danger errormsg" *ngIf="this.nameField.hasError('required')">
+                        A budget name is required.
+                    </small>
+                    <small class="text-danger errormsg" *ngIf="this.nameField?.hasError('pattern')">
+                        A Budget name should be of at least 3 characters.
+                    </small> 
+                </div>
+
+            </form>
+
+
+        </div>
+        <div class="d-grid col-12 text-center mx-auto">
+            <button routerLink="/starships" class="btn btn-lg btn-secondary p-4 m-4">Start</button>
+        </div>
+        <div>
+            <a href="">Sign Up</a>
+        </div>
+    </div>
+</div>

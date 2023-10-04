@@ -7,10 +7,11 @@ import { HomeComponent } from './home/home.component';
 import { StarshipsComponent } from './starships/starships.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const appRoutes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: '', component: StarshipsComponent},
+  {path: '', component: HomeComponent},
+  {path: 'starships', component: StarshipsComponent},
   
 ];
 
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     StarshipsComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

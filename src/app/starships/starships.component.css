@@ -1,4 +1,4 @@
-.header {
+.header{
     height: 250px;
 }
 
@@ -10,3 +10,7 @@ a.list-group-item {
     background-color: #151515;
 }
 
+img{
+    color: gray;
+    text-align: center;
+}
