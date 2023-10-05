@@ -24,8 +24,8 @@ export class HomeComponent {
 
 logInForm = this.FormBuilder.group({
 
-    name: ['', Validators.compose([Validators.required, Validators.pattern(/^[a-zA-Z]{3,}$/)])],
-    client: ['', Validators.compose([Validators.required,Validators.pattern(/^[a-zA-Z]{3,}$/)])],
+    userName: ['', Validators.compose([Validators.required, Validators.pattern(/^[a-zA-Z]{3,}$/)])],
+    password: ['', Validators.compose([Validators.required,Validators.pattern(/^[a-zA-Z]{5,}$/)])],
 
 });
 
@@ -34,23 +34,6 @@ private buildForm(){
     this.logInForm.valueChanges.pipe(debounceTime(500)).subscribe(value => {console.log(value) })
 
 } 
-
-
-serviceCheck(control: AbstractControl) {
-
-    const webControl = control.get('web')?.value;
-    const consultoriaControl = control.get('consultoria')?.value;
-    const addsControl = control.get('adds')?.value;
-
-    if(!webControl && !consultoriaControl && !addsControl ){
-        return { noCheck: true };
-        console.log("esto no existe")
-    } else {
-        return null;
-
-    }
-   }
-
 
 
 save(event: Event) {
@@ -67,11 +50,11 @@ save(event: Event) {
 
 
 get nameField() {
-    return this.logInForm.get('name');
+    return this.logInForm.get('userName');
 }
 
 get clientField() {
-    return this.logInForm.get('client');
+    return this.logInForm.get('password');
 }
 
 

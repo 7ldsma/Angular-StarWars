@@ -2,12 +2,12 @@
     <div class="row justify-content-center">
         <div class="d-grid col-12 text-center mx-auto">
             
-            <form formGroup="logInForm" needs-validation novalidate (submit)="save($event)">
+            <form class="mb-3" formGroup="logInForm" needs-validation novalidate (submit)="save($event)">
             
-                <div>
-                    Username (Email): <br/>
-                    <input type="text" formControlName = "client">
-                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" formControlName="userName" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                  </div>
                 <div *ngIf="this.clientField && this.clientField.errors && this.clientField.touched">
                     <small class="text-danger errormsg" *ngIf="this.clientField.hasError('required')">
                         A Client name is required.
@@ -18,10 +18,10 @@
                 </div>
 
 
-                <div>
-                    Password: <br/>
-                    <input type="text" formControlName = "name">
-                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" formControlName="password" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                  </div>
                 <div *ngIf="this.nameField && this.nameField.errors && this.nameField.touched">
                     <small class="text-danger errormsg" *ngIf="this.nameField.hasError('required')">
                         A budget name is required.
@@ -36,7 +36,7 @@
 
         </div>
         <div class="d-grid col-12 text-center mx-auto">
-            <button routerLink="/starships" class="btn btn-lg btn-secondary p-4 m-4">Start</button>
+            <button routerLink="/starships" class="btn btn-lg btn-secondary p-3">Start</button>
         </div>
         <div>
             <a href="">Sign Up</a>

@@ -8,9 +8,12 @@ import { StarshipsComponent } from './starships/starships.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ScrollComponent } from './scroll/scroll.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'starships', component: StarshipsComponent},
   
 ];
@@ -22,12 +25,15 @@ const appRoutes: Routes = [
     HomeComponent,
     StarshipsComponent,
     NavbarComponent,
+    ScrollComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    InfiniteScrollModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import { Observable, observable } from "rxjs";
+import { SpaceShip } from '../interfaces/ships.component';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +16,8 @@ export class GetstarshipsService {
   constructor(private httpClient: HttpClient) { }
 
 
-  getStarShips() {
-    return this.httpClient.get(this.url);
+  getStarShips(page: number): Observable<SpaceShip[]> {
+    return this.httpClient.get(this.url) as Observable<SpaceShip[]>;
   }
 
   getShipImg(shipId:number){
@@ -23,6 +26,7 @@ export class GetstarshipsService {
     
     return this.httpClient.get(this.imageUrl)
   }
+
 
 
 

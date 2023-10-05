@@ -1,14 +1,19 @@
+<div class="row header justify-content-center mt-4">
+  <img class="logo" src="/assets/Logo.webp" style="max-width: 40%;" alt="">
+</div>
+<div class="row navbar py-4 justify-content-center">
+  <app-navbar></app-navbar>
+</div>
 <div class="container">
-    <div class="row header">
-      <img src="" alt="">
-    </div>
-    <div class="row py-4">
-      <app-navbar></app-navbar>
-    </div>
 
-    <div *ngIf="hideList" class="row justify-content-center">
+    <div infinite-scroll
+      [infiniteScrollDistance]="distance"
+      [infiniteScrollThrottle]="throttle"
+      (scrolled)="onScroll()"
+     *ngIf="hideList" 
+     class="row justify-content-center">
         <div class="list-group col col-xl-8">
-            <a href="#" *ngFor="let ship of ships; let i = index" 
+            <a href="" *ngFor="let ship of ships; let i = index" 
             class="list-group-item list-group-item-action ships my-2 text-secondary rounded py-2"
             (click)="showCard = true; hideList = false; getShipCard(ship)">
                 <div class="d-flex w-100 justify-content-between pt-2 pb-1">

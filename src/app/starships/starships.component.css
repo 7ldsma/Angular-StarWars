@@ -2,7 +2,12 @@
     height: 250px;
 }
 
-a.list-group-item {
+.navbar{
+    overflow-x: hidden;
+}
+
+
+a.list-group-item{
     border: none;
   }
 
@@ -14,3 +19,4 @@ img{
     color: gray;
     text-align: center;
 }
+
