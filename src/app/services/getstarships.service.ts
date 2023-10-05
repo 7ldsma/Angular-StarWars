@@ -20,10 +20,11 @@ export class GetstarshipsService {
     return this.httpClient.get(this.url) as Observable<SpaceShip[]>;
   }
 
+
   getShipImg(shipId:number){
 
     this.imageUrl = `https://starwars-visualguide.com/assets/img/starships/${shipId}.jpg`;
-    
+    console.log(this.imageUrl)
     return this.httpClient.get(this.imageUrl)
   }
 

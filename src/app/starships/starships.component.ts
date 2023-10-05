@@ -40,7 +40,7 @@ ngOnInit(): void {
 
 
 onScroll(): void {
-  
+
   if(this.ships.length < this.totalShips){
     
     this.getstarshipsservice.getStarShips(++this.page)
@@ -56,7 +56,7 @@ getShipCard( ship: any){
   this.nave = ship;
   this.urlWSwapi = this.nave.url.split('/')
   this.shipId = parseInt(this.urlWSwapi[this.urlWSwapi.length - 2])
-
+  console.log(this.shipId)
   this.getstarshipsservice.getShipImg(this.shipId)
 
 }

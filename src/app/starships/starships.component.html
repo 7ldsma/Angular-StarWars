@@ -1,5 +1,5 @@
-<div class="row header justify-content-center mt-4">
-  <img class="logo" src="/assets/Logo.webp" style="max-width: 40%;" alt="">
+<div class="row header justify-content-center align-items-center mt-4">
+  <img class="logo" src="https://lumiere-a.akamaihd.net/v1/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png?region=0,0,586,254" alt="StarWars Logo">
 </div>
 <div class="row navbar py-4 justify-content-center">
   <app-navbar></app-navbar>
@@ -15,7 +15,8 @@
         <div class="list-group col col-xl-8">
             <a href="" *ngFor="let ship of ships; let i = index" 
             class="list-group-item list-group-item-action ships my-2 text-secondary rounded py-2"
-            (click)="showCard = true; hideList = false; getShipCard(ship)">
+            (click)="showCard = true; hideList = false; getShipCard(ship)"
+            routerLink="/starships">
                 <div class="d-flex w-100 justify-content-between pt-2 pb-1">
                   <h6 class="mb-1">{{ ship.name | uppercase }}</h6>
                 </div>
