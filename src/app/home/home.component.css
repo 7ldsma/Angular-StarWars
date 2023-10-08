@@ -1,8 +1,12 @@
-.intro{
-    height: 100vh;
+.header{
+    height: 200px;
 }
 
-.formInput{
-    background-color: #151515;
+.navbar{
+    overflow-x: hidden;
 }
 
+.logo{
+    max-width: 250px;
+    max-height: 100px;
+}

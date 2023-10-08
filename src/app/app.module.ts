@@ -11,11 +11,17 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ScrollComponent } from './scroll/scroll.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'starships', component: StarshipsComponent},
-  
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent}
+
 ];
 
 
@@ -26,6 +32,8 @@ const appRoutes: Routes = [
     StarshipsComponent,
     NavbarComponent,
     ScrollComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +41,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     InfiniteScrollModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
