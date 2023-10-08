@@ -13,6 +13,13 @@
       "email": "alvaro.ledesmav@gmail.com",
       "password": "liesms",
       "id": 1
+    },
+    {
+      "name": "Marc",
+      "lastname": "Sorli",
+      "email": "marcsorli@gmail.com",
+      "password": "12345",
+      "id": 2
     }
   ],
   "profile": {

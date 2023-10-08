@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormGroup , FormBuilder } from '@angular/forms';
+import { Validators, FormGroup , FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime } from 'rxjs';
 
@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit{
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: [''],
-      password: [''],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      password: ['', Validators.required],
     })
   }
 
@@ -72,8 +72,14 @@ export class LoginComponent implements OnInit{
 // }
 
 
+get emailField( ){
+  return this.loginForm.get('email')
+}
 
 
+get passwordField( ){
+  return this.loginForm.get('password')
+}
 
   
 }
