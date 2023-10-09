@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup , FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime } from 'rxjs';
+import { AuthService } from '../services/authservice.service';
 
 @Component({
   selector: 'app-login',
@@ -12,11 +13,14 @@ import { debounceTime } from 'rxjs';
 export class LoginComponent implements OnInit{
 
   public loginForm!: FormGroup;
+  public loggedInUser: boolean = false;
 
   constructor ( private formBuilder: FormBuilder, 
     private http: HttpClient,
-    private router: Router){
-
+    private router: Router,
+    private authService: AuthService,
+    ){
+      sessionStorage.clear();
   };
  
 
@@ -36,6 +40,7 @@ export class LoginComponent implements OnInit{
       });
       if(user) {
         alert("Login successfull");
+        sessionStorage.setItem('email', user.email);
         this.loginForm.reset();
         this.router.navigate(['home'])
       } else {
@@ -43,7 +48,7 @@ export class LoginComponent implements OnInit{
       }
 
     }, err => {
-      alert("Something went wrong")
+      alert("Invalid credentials. Please verify your login information")
     })
 
   }

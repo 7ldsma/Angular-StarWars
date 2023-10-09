@@ -16,7 +16,7 @@
             (click)="showCard = true; hideList = false; getShipCard(ship)"
             routerLink="/starships">
                 <div class="d-flex w-100 justify-content-between pt-2 pb-1">
-                  <h6 class="mb-1">{{ ship.name | uppercase }}</h6>
+                  <h4 class="mb-1">{{ ship.name | uppercase }}</h4>
                 </div>
                 <div class="pt-1 pb-2">
                     <small>{{ ship.model }}</small>
@@ -27,8 +27,8 @@
     </div>
 
 
-    <div *ngIf="showCard" class="card ships mb-3">
-        <div class="row g-0">
+    <div *ngIf="showCard" class="card ships my-4">
+        <div class="row g-0 mb-4">
           <div class="col-md-6">
             <img [src]="this.getstarshipsservice.imageUrl" class="img-fluid rounded-start" alt="The image you are looking for is not here, but no one's ever really gone">
           </div>
@@ -50,8 +50,15 @@
 
             </div>
           </div>
+          <div class="row mt-4">
+            <hr class="divider">
+          </div>
         </div>
-      </div>
+        
+        <div class="row">
+          
+        </div>
+    </div>
 
 
 </div>
