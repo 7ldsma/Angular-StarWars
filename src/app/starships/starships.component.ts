@@ -25,6 +25,11 @@ export class StarshipsComponent implements OnInit {
   distance = 2;
   page = 1;
   
+  pilotsId: string[] = [];
+  pilotNumber: string = '';
+
+  filmsId: string[] = [];
+  filmNumber: string = '';
 
 constructor(public getstarshipsservice: GetstarshipsService) {}
 
@@ -56,9 +61,32 @@ getShipCard( ship: any){
   this.nave = ship;
   this.urlWSwapi = this.nave.url.split('/')
   this.shipId = parseInt(this.urlWSwapi[this.urlWSwapi.length - 2])
-  console.log(this.shipId)
+  console.log(this.shipId, this.nave)
   this.getstarshipsservice.getShipImg(this.shipId)
+  this.getPilots()
+  this.getFilms()
+}
 
+
+
+getPilots(){
+  this.pilotsId = this.nave.pilots.map((url:string) => {
+    const parts = url.split('/');
+    this.pilotNumber = parts[parts.length - 2]
+    return this.pilotNumber
+  })
+  console.log(this.pilotsId)
+  this.getstarshipsservice.getPilotsImg(this.pilotsId)
+}
+
+
+getFilms(){
+  this.filmsId = this.nave.films.map((url:string) => {
+    const movies = url.split('/');
+    this.filmNumber = movies[movies.length - 2]
+    return this.filmNumber
+  })
+  this.getstarshipsservice.getFilms(this.filmsId)
 }
 
 
