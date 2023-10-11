@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable, forkJoin, observable } from "rxjs";
 import { SpaceShip } from '../interfaces/ships.component';
+import { Pilot } from '../interfaces/pilot.component';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import { SpaceShip } from '../interfaces/ships.component';
 })
 export class GetstarshipsService {
   
-  url = 'https://swapi.py4e.com/api/starships/';
+  baseUrl = 'https://swapi.py4e.com/api/';
 
   vsUrl = 'https://starwars-visualguide.com/assets/img/';
   
@@ -26,7 +27,7 @@ export class GetstarshipsService {
 
 
   getStarShips(page: number): Observable<SpaceShip[]> {
-    return this.httpClient.get(this.url) as Observable<SpaceShip[]>;
+    return this.httpClient.get(this.baseUrl + 'starships/') as Observable<SpaceShip[]>;
   }
 
 
@@ -44,19 +45,29 @@ export class GetstarshipsService {
       return this.vsUrl + `characters/${id}.jpg`;
     })
     
-    this.pilotsNames = pilots.map((id:string) => {
-      return `https://swapi.py4e.com/api/people/${id}`;
+  }
+
+  getPilotNames(pilot: string[]){
+    this.pNames = pilot.map((id:string) => {
+      return this.httpClient.get(`https://swapi.py4e.com/api/people/${id}`) as Observable<Pilot>;
     })
-    console.log(this.pilotsNames)
+    console.log(this.pNames)
 
-    this.pNames = this.pilotsNames.map((url: string) => 
 
-      this.httpClient.get< { name : string }>(url));
-
-      console.log(this.pNames)
-    
+  
 
   }
+
+    // this.pNames = this.pilotsNames.map((url: string) => 
+
+    //   this.httpClient.get< { name : string }>(url));
+
+    //   console.log(this.pNames)
+    
+
+  
+
+
 
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetstarshipsService } from '../services/getstarships.service';
 import { SpaceShip } from '../interfaces/ships.component';
+import { Pilot } from '../interfaces/pilot.component';
 
 
 @Component({
@@ -27,6 +28,9 @@ export class StarshipsComponent implements OnInit {
   
   pilotsId: string[] = [];
   pilotNumber: string = '';
+  pilots: Pilot[] = [];
+  pilotsList: any;
+  pil: any;
 
   filmsId: string[] = [];
   filmNumber: string = '';
@@ -77,7 +81,14 @@ getPilots(){
   })
   console.log(this.pilotsId)
   this.getstarshipsservice.getPilotsImg(this.pilotsId)
+
+  
 }
+ 
+  getPilotNames(): void {
+    this.getstarshipsservice.getPilotNames(this.pilotsId)
+
+  }
 
 
 getFilms(){
