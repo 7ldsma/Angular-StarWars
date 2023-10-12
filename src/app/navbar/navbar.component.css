@@ -1,6 +1,6 @@
-.header{
+/* .header{
     height: 100px;
-}
+} */
 
 .navbar{
     overflow-x: hidden;
@@ -9,4 +9,5 @@
 .logo{
     max-width: 250px;
     max-height: 100px;
+    align-self: center;
 }

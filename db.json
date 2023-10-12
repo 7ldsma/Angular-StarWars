@@ -20,6 +20,13 @@
       "email": "marcsorli@gmail.com",
       "password": "12345",
       "id": 2
+    },
+    {
+      "name": "Carmen",
+      "lastname": "Izquierdo",
+      "email": "carmen@gmail.com",
+      "password": "12345",
+      "id": 3
     }
   ],
   "profile": {
