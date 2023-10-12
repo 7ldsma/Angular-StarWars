@@ -11,3 +11,15 @@
     max-height: 100px;
     align-self: center;
 }
+
+a{
+    color: var(--bs-secondary);
+}
+
+a:hover {
+    color: var(--bs-light);
+}
+
+.activo a {
+    color: var(--bs-light);
+}

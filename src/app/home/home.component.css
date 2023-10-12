@@ -11,8 +11,27 @@
     max-height: 100px;
 }
 
-img {
-    max-width: 100%;
-    
-   
+.hero {
+    height: 70vh;
+    /* background: url(../../assets/space.webp); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
+#background-video {
+    width: 100vw;
+    height: 70vh;
+    object-fit: cover;
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 1;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  .texto{
+    z-index: 2;
+    margin-top: -200px;
+  }
