@@ -16,7 +16,7 @@ export class GetstarshipsService {
   vsUrl = 'https://starwars-visualguide.com/assets/img/';
   
   imageUrl: string = '';
-  pilotsNames: string[] = [];
+  pilotNames: any;
   pilotsUrl: string[] = [];
   pNames: any;
 
@@ -49,16 +49,12 @@ export class GetstarshipsService {
     
   }
 
-  getPilotNames(pilot: string[]){
-    this.pNames = pilot.map((id:string) => {
-      return this.httpClient.get(`https://swapi.py4e.com/api/people/${id}`) as Observable<Pilot>;
-    })
-    console.log(this.pNames)
-
-
-  
-
+  getPilotNames(page: number): Observable<Pilot[]>{
+    return this.httpClient.get(this.baseUrl + 'people/') as Observable<Pilot[]>;
+    
   }
+
+
 
     // this.pNames = this.pilotsNames.map((url: string) => 
 

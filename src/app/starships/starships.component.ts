@@ -29,8 +29,8 @@ export class StarshipsComponent implements OnInit {
   pilotsId: string[] = [];
   pilotNumber: string = '';
   pilots: Pilot[] = [];
-  pilotsList: any;
-  pil: any;
+  pilotList: any;
+  totalPilots: number = 0;
 
   filmsId: string[] = [];
   filmNumber: string = '';
@@ -43,8 +43,28 @@ ngOnInit(): void {
     .subscribe(response => {
       this.starships = response;
       this.totalShips = this.starships.count;
-      this.ships = this.starships.results
+      this.ships = this.starships.results;
+      console.log(this.ships)
+      
   })
+
+  // this.getstarshipsservice.getPilotNames(this.page)
+  // .subscribe(res => {
+  //   this.pilotList = res;
+  //   this.pilots = this.pilotList.results;
+  //   this.totalPilots = this.pilotList.count;
+  //   const totalpages = this.totalPilots / 10; 
+  // })
+  //   for(let i = 0; i <= this.totalPilots; i++){
+  //     this.getstarshipsservice.getPilotNames(i)
+  //     .subscribe((res: any) => {
+  //       const newPilots = res.results;
+  //       this.pilots.push(...newPilots)
+  //       console.log(this.pilots)
+  //   })
+  // }
+  
+
 }
 
 
@@ -82,12 +102,29 @@ getPilots(){
   console.log(this.pilotsId)
   this.getstarshipsservice.getPilotsImg(this.pilotsId)
 
-  
+  this.getPilotNames();  
 }
  
-  getPilotNames(): void {
-    this.getstarshipsservice.getPilotNames(this.pilotsId)
 
+
+getPilotNames(): void {
+  this.getstarshipsservice.getPilotNames(this.page)
+  .subscribe(res => {
+    this.pilotList = res;
+    this.pilots = this.pilotList.results;
+    this.totalPilots = this.pilotList.count;
+    const totalpages = this.totalPilots / 10; 
+    console.log(totalpages)
+  })
+    for(let i = 0; i <= (this.totalPilots /10); i++){
+      this.getstarshipsservice.getPilotNames(i)
+      .subscribe((res: any) => {
+        const newPilots = res.results;
+        this.pilots = this.pilots.concat(newPilots);
+        // this.pilots.push(...newPilots)
+        console.log(this.pilots, newPilots, i)
+    })
+  }
   }
 
 
