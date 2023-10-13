@@ -21,7 +21,8 @@ export class GetstarshipsService {
   pNames: any;
 
   filmsUrl: string[] = [];
-  fNames: string[]=[];
+  fNames: any;
+  filmNames: any;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -49,32 +50,44 @@ export class GetstarshipsService {
     
   }
 
-  getPilotNames(page: number): Observable<Pilot[]>{
-    return this.httpClient.get(this.baseUrl + 'people/') as Observable<Pilot[]>;
-    
+  getPilotNames(pilots: string[]): Observable<any>{
+
+    this.pNames = pilots.map((url: string) => {
+      return this.baseUrl + `people/${url}`;
+    })
+    console.log(this.pNames)
+
+    this.pilotNames = this.pNames.map( (url:any) => {
+      
+      return this.httpClient.get<any>(url);
+    });
+
+    console.log(this.pilotNames)
+    return forkJoin(this.pilotNames);
   }
 
-
-
-    // this.pNames = this.pilotsNames.map((url: string) => 
-
-    //   this.httpClient.get< { name : string }>(url));
-
-    //   console.log(this.pNames)
-    
-
-  
-
-
-
-
-
-  getFilms(filmsId: any){
+  getFilms(filmsId: string[]){
 
     this.filmsUrl = filmsId.map((id: string) => {
 
       return this.vsUrl + `films/${id}.jpg`;
     })
+    console.log(this.filmsUrl)
+
+  }
+
+  getFilmNames(filmIds: string[]): Observable<any>{
+
+    this.fNames = filmIds.map((id:string) => {
+      return this.baseUrl + `films/${id}`
+    })
+    console.log(this.fNames)
+
+    this.filmNames = this.fNames.map((url:any) => {
+      return this.httpClient.get<any>(url)
+    })
+
+    return forkJoin(this.filmNames);
 
   }
 

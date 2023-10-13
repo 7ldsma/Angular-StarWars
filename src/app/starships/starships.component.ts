@@ -34,6 +34,7 @@ export class StarshipsComponent implements OnInit {
 
   filmsId: string[] = [];
   filmNumber: string = '';
+  filmNames: any;
 
 constructor(public getstarshipsservice: GetstarshipsService) {}
 
@@ -48,22 +49,6 @@ ngOnInit(): void {
       
   })
 
-  // this.getstarshipsservice.getPilotNames(this.page)
-  // .subscribe(res => {
-  //   this.pilotList = res;
-  //   this.pilots = this.pilotList.results;
-  //   this.totalPilots = this.pilotList.count;
-  //   const totalpages = this.totalPilots / 10; 
-  // })
-  //   for(let i = 0; i <= this.totalPilots; i++){
-  //     this.getstarshipsservice.getPilotNames(i)
-  //     .subscribe((res: any) => {
-  //       const newPilots = res.results;
-  //       this.pilots.push(...newPilots)
-  //       console.log(this.pilots)
-  //   })
-  // }
-  
 
 }
 
@@ -97,9 +82,9 @@ getPilots(){
   this.pilotsId = this.nave.pilots.map((url:string) => {
     const parts = url.split('/');
     this.pilotNumber = parts[parts.length - 2]
+    console.log(this.pilotNumber)
     return this.pilotNumber
   })
-  console.log(this.pilotsId)
   this.getstarshipsservice.getPilotsImg(this.pilotsId)
 
   this.getPilotNames();  
@@ -108,23 +93,12 @@ getPilots(){
 
 
 getPilotNames(): void {
-  this.getstarshipsservice.getPilotNames(this.page)
-  .subscribe(res => {
-    this.pilotList = res;
-    this.pilots = this.pilotList.results;
-    this.totalPilots = this.pilotList.count;
-    const totalpages = this.totalPilots / 10; 
-    console.log(totalpages)
-  })
-    for(let i = 0; i <= (this.totalPilots /10); i++){
-      this.getstarshipsservice.getPilotNames(i)
-      .subscribe((res: any) => {
-        const newPilots = res.results;
-        this.pilots = this.pilots.concat(newPilots);
-        // this.pilots.push(...newPilots)
-        console.log(this.pilots, newPilots, i)
+
+    this.getstarshipsservice.getPilotNames(this.pilotsId)
+    .subscribe((res:any) => {
+      this.pilotList = res;
     })
-  }
+
   }
 
 
@@ -135,6 +109,17 @@ getFilms(){
     return this.filmNumber
   })
   this.getstarshipsservice.getFilms(this.filmsId)
+  this.getFilmName();
+
+}
+
+
+getFilmName(){
+  this.getstarshipsservice.getFilmNames(this.filmsId)
+  .subscribe((res:any) => {
+    this.filmNames = res;
+  })
+
 }
 
 
