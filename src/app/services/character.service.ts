@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Character } from '../interfaces/character.component';
-import { Observable } from 'rxjs';
+import { Observable, forkJoin } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,13 @@ export class CharacterService {
 
   imageUrl: string = '';
 
+  filmsUrl: string[] = [];
+  fNames: any;
+  filmNames: any;
+
+
+
+
 
   getCharacters(page: number): Observable<Character[]> {
     return this.httpClient.get(this.baseUrl + 'people/') as Observable<Character[]>;
@@ -27,6 +34,31 @@ export class CharacterService {
     return this.httpClient.get(this.imageUrl)
   }
 
+
+  getFilms(filmsId: string[]){
+
+    this.filmsUrl = filmsId.map((id: string) => {
+
+      return this.vsUrl + `films/${id}.jpg`;
+    })
+
+  }
+
+  
+  getFilmNames(filmIds: string[]): Observable<any>{
+
+    this.fNames = filmIds.map((id:string) => {
+      return this.baseUrl + `films/${id}`
+    })
+    console.log(this.fNames)
+
+    this.filmNames = this.fNames.map((url:any) => {
+      return this.httpClient.get<any>(url)
+    })
+
+    return forkJoin(this.filmNames);
+
+  }
 
 
   

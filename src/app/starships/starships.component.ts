@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetstarshipsService } from '../services/getstarships.service';
 import { SpaceShip } from '../interfaces/ships.component';
+import { CharacterService } from '../services/character.service';
 
 
 @Component({
@@ -34,7 +35,7 @@ export class StarshipsComponent implements OnInit {
   filmNumber: string = '';
   filmNames: any;
 
-constructor(public getstarshipsservice: GetstarshipsService) {}
+constructor(public getstarshipsservice: GetstarshipsService, public characterService: CharacterService) {}
 
 
 ngOnInit(): void {

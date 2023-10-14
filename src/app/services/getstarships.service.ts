@@ -25,7 +25,6 @@ export class GetstarshipsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  
 
 
   getStarShips(page: number): Observable<SpaceShip[]> {
@@ -49,6 +48,7 @@ export class GetstarshipsService {
     
   }
 
+
   getPilotNames(pilots: string[]): Observable<any>{
 
     this.pNames = pilots.map((url: string) => {
@@ -61,9 +61,10 @@ export class GetstarshipsService {
       return this.httpClient.get<any>(url);
     });
 
-    console.log(this.pilotNames)
     return forkJoin(this.pilotNames);
   }
+
+
 
   getFilms(filmsId: string[]){
 
@@ -71,9 +72,9 @@ export class GetstarshipsService {
 
       return this.vsUrl + `films/${id}.jpg`;
     })
-    console.log(this.filmsUrl)
 
   }
+
 
   getFilmNames(filmIds: string[]): Observable<any>{
 

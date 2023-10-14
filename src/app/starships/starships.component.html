@@ -65,7 +65,8 @@
             <hr class="divider">
           </div>
 
-          <div class="card m-2 bg-dark" *ngFor="let url of this.getstarshipsservice.pilotsUrl, let i = index" style="width: 18rem;">
+          <div class="card m-2 bg-dark" *ngFor="let url of this.getstarshipsservice.pilotsUrl, let i = index" 
+                style="width: 18rem;">
             <img [src]="url" class="card-img-top mt-2 rounded-bottom" alt="...">
             <div class="card-body text-center">
               <h5 class="card-title text-light">{{ pilotList[i].name }}</h5>

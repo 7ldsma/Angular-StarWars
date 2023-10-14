@@ -49,12 +49,27 @@
                   <p class="card-text">Weight: {{ characters.mass }} kg</p>
                   <p class="card-text">Birth Year: {{ characters.birth_year }}</p>
     
-    
                 </div>
               </div>
             </div>
-          
         </div>
+
+
+            <div *ngIf="this.characterService.filmsUrl" class="row justify-content-center mb-3">
+                <div class="row">
+                  <hr class="divider">
+                  <p class="text-secondary">FILMS</p>
+                  <hr class="divider">
+                </div>
+      
+                <div class="card m-2 bg-dark" *ngFor="let url of this.characterService.filmsUrl, let i = index" style="width: 18rem;">
+                  <img [src]="url" class="card-img-top mt-2 rounded-bottom" alt="...">
+                  <div class="card-body text-center">
+                    <h5 class="card-title text-light">{{ filmNames[i].title }}</h5>
+                  </div>
+                </div>
+            </div>
+          
 
 </div>
 

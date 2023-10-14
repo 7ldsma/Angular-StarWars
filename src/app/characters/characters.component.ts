@@ -25,6 +25,10 @@ export class CharactersComponent {
   distance = 2;
   page = 1;
 
+  filmsId: string[] = [];
+  filmNumber: string = '';
+  filmNames: any;
+
   constructor(public characterService: CharacterService) {}
 
 
@@ -50,14 +54,7 @@ onScroll(): void {
     .subscribe((response: any) => {
       const newChars = response.results;
       this.character.push(...newChars);
-      console.log(this.character, 'HOOLLLAAA')
     })
-    console.log(this.character, 'AAAAAAA')
-    // this.urlWSwapi = this.character.url.map((id:any) => {
-    //   const parts = id.split('/');
-    //   this.charId = parts[parts.lenght -2]
-    //   return this.characterService.getCharListImg(this.page)
-    // })
 
   }
 }
@@ -68,8 +65,31 @@ getCharacterCard(char: any){
   this.charId = parseInt(this.urlWSwapi[this.urlWSwapi.length - 2]);
   this.characterService.getCharImg(this.charId);
 
+  this.getFilms()
 
 }
+
+
+getFilms(){
+  this.filmsId = this.characters.films.map((url:string) => {
+    const movies = url.split('/');
+    this.filmNumber = movies[movies.length - 2]
+    return this.filmNumber
+  })
+  this.characterService.getFilms(this.filmsId)
+  this.getFilmName();
+
+}
+
+
+getFilmName(){
+  this.characterService.getFilmNames(this.filmsId)
+  .subscribe((res:any) => {
+    this.filmNames = res;
+  })
+
+}
+
 
 
 }
