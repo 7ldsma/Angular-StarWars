@@ -27,6 +27,13 @@
       "email": "carmen@gmail.com",
       "password": "12345",
       "id": 3
+    },
+    {
+      "name": "Martha",
+      "lastname": "Col",
+      "email": "martha@gmail.com",
+      "password": "12345",
+      "id": 4
     }
   ],
   "profile": {

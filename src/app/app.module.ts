@@ -15,11 +15,14 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from './guard/auth.guard';
+import { CharactersComponent } from './characters/characters.component';
+import { FilmsComponent } from './films/films.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'starships', component: StarshipsComponent, canActivate: [AuthGuard]},
+  {path: 'characters', component: CharactersComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent}
 
@@ -35,6 +38,8 @@ const appRoutes: Routes = [
     ScrollComponent,
     LoginComponent,
     RegisterComponent,
+    CharactersComponent,
+    FilmsComponent,
   ],
   imports: [
     BrowserModule,

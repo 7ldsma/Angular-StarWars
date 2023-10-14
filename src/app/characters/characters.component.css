@@ -1,0 +1,21 @@
+
+a.list-group-item{
+    border: none;
+  }
+
+.chars{
+    background-color: #151515;
+}
+
+.listImg{
+    max-width: 100px;
+}
+
+img{
+    color: gray;
+    text-align: center;
+}
+
+.divider{
+    color: white;
+}

@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Observable, forkJoin, observable } from "rxjs";
+import { Observable, forkJoin } from "rxjs";
 import { SpaceShip } from '../interfaces/ships.component';
-import { Pilot } from '../interfaces/pilot.component';
 
 
 @Injectable({

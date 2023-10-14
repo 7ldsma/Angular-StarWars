@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetstarshipsService } from '../services/getstarships.service';
 import { SpaceShip } from '../interfaces/ships.component';
-import { Pilot } from '../interfaces/pilot.component';
 
 
 @Component({
@@ -28,7 +27,6 @@ export class StarshipsComponent implements OnInit {
   
   pilotsId: string[] = [];
   pilotNumber: string = '';
-  pilots: Pilot[] = [];
   pilotList: any;
   totalPilots: number = 0;
 

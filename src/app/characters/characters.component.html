@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+
+
+<div class="container">
+    <div infinite-scroll
+      [infiniteScrollDistance]="distance"
+      [infiniteScrollThrottle]="throttle"
+      (scrolled)="onScroll()"
+     *ngIf="hideList" 
+     class="row justify-content-start mt-4">
+        <div class="list-group col col-xl-8">
+            <a href="" *ngFor="let char of character; let i = index" 
+            class="list-group-item list-group-item-action chars d-flex align-items-center my-2 text-secondary rounded py-2"
+            (click)="showCard = true; hideList = false"
+            routerLink="/characters">
+                <!-- <div class="d-flex w-100 justify-content-between pt-2 pb-1"> -->
+                <div class="me-4">
+                    <img [src]="this.characterService.imageUrl" class="img-fluid listImg mx-auto d-block rounded-3" alt="The image you are looking for is not here" onerror="this.src='../../assets/space.webp';">
+
+                </div>
+                <div>
+                    <h4 class="mb-1">{{ char.name | uppercase }}</h4>
+
+                </div>
+                <!-- </div> -->
+
+            </a>
+
+        </div>
+    </div>
+
+
+    <div *ngIf="showCard" class="card chars my-4">
+        <div class="d-flex justify-content-end p-3 text-warning">
+            <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="showCard = false; hideList = true"></button>
+        </div>
+        <div class="row justify-content-center mb-3">
+          <div class="row">
+            <hr class="divider">
+            <p class="text-secondary">CHARACTER</p>
+            <hr class="divider">
+          </div>
+    
+            <div class="row g-0 mb-4 justify-content-center">
+              <div class="col-md-6 ps-4">
+                <img [src]="this.characterService.imageUrl" class="img-fluid mx-auto d-block rounded-3" alt="The image you are looking for is not here" onerror="this.src='../../assets/space.webp';">
+              </div>
+              <div class="col-md-6 align-items-center">
+                <div class="card-body text-secondary">
+                  <h4 class="card-title">{{ characters.name | uppercase }}</h4>
+                  <p class="card-text">Height: {{ characters.height }} m</p>
+                  <p class="card-text">Weight: {{ characters.mass }} kg</p>
+                  <p class="card-text">Birth Year: {{ characters.birth_year }}</p>
+    
+    
+                </div>
+              </div>
+            </div>
+          
+        </div>
+
+</div>
+
