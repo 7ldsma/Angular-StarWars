@@ -16,6 +16,7 @@ export class CharactersComponent {
   urlWSwapi: string[] = [];
   charId: number = 0;
 
+
   showCard: boolean = false;
   hideList: boolean = true;
 
@@ -38,12 +39,6 @@ export class CharactersComponent {
       
   })
 
-  
-  this.urlWSwapi = this.characters.url.split('/');
-  this.charId = parseInt(this.urlWSwapi[this.urlWSwapi.length - 2]);
-  this.characterService.getCharImg(this.charId);
-
-
 }
 
 
@@ -55,7 +50,15 @@ onScroll(): void {
     .subscribe((response: any) => {
       const newChars = response.results;
       this.character.push(...newChars);
+      console.log(this.character, 'HOOLLLAAA')
     })
+    console.log(this.character, 'AAAAAAA')
+    // this.urlWSwapi = this.character.url.map((id:any) => {
+    //   const parts = id.split('/');
+    //   this.charId = parts[parts.lenght -2]
+    //   return this.characterService.getCharListImg(this.page)
+    // })
+
   }
 }
 

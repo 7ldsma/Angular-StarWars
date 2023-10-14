@@ -7,22 +7,19 @@
       [infiniteScrollThrottle]="throttle"
       (scrolled)="onScroll()"
      *ngIf="hideList" 
-     class="row justify-content-start mt-4">
+     class="row justify-content-center mt-4">
         <div class="list-group col col-xl-8">
             <a href="" *ngFor="let char of character; let i = index" 
-            class="list-group-item list-group-item-action chars d-flex align-items-center my-2 text-secondary rounded py-2"
-            (click)="showCard = true; hideList = false"
+            class="list-group-item list-group-item-action chars my-2 text-secondary d-flex align-items-center rounded py-2"
+            (click)="showCard = true; hideList = false; getCharacterCard(char)"
             routerLink="/characters">
-                <!-- <div class="d-flex w-100 justify-content-between pt-2 pb-1"> -->
-                <div class="me-4">
-                    <img [src]="this.characterService.imageUrl" class="img-fluid listImg mx-auto d-block rounded-3" alt="The image you are looking for is not here" onerror="this.src='../../assets/space.webp';">
-
-                </div>
+                <!-- <div class="">
+                  <img [src]="this.characterService.imageUrl" class="img-fluid listImg mx-auto d-block me-4 rounded-3" alt="The image you are looking for is not here" onerror="this.src='../../assets/space.webp';">
+                </div> -->
                 <div>
                     <h4 class="mb-1">{{ char.name | uppercase }}</h4>
 
                 </div>
-                <!-- </div> -->
 
             </a>
 
