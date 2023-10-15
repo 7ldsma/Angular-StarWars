@@ -35,3 +35,41 @@
     z-index: 2;
     margin-top: -200px;
   }
+
+.divider{
+    height: 150px;
+    background-color: black;
+}
+
+.footer{
+    height: 200px;
+}
+
+img{
+    max-width: 350px;
+    max-height: 150px;
+}
+
+.feature {
+    padding: 16px 32px;
+    width: 380px;
+    max-width: 380px;
+    flex-grow: 1;
+}
+
+.feature-inner {
+    height: 100%;
+}
+
+.feature-inner h4{
+    color: var(--bs-light);
+}
+
+.feature-inner p{
+    color: var(--bs-secondary);
+}
+
+.feature-icon {
+	display: flex;
+    justify-content: center;
+}
