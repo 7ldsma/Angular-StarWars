@@ -10,7 +10,7 @@ import { SpaceShip } from '../interfaces/ships.component';
 })
 export class GetstarshipsService {
   
-  baseUrl = 'https://swapi.py4e.com/api/';
+  baseUrl = 'https://swapi.py4e.com/api/starships/?page=';
 
   vsUrl = 'https://starwars-visualguide.com/assets/img/';
   
@@ -28,7 +28,7 @@ export class GetstarshipsService {
 
 
   getStarShips(page: number): Observable<SpaceShip[]> {
-    return this.httpClient.get(this.baseUrl + 'starships/') as Observable<SpaceShip[]>;
+    return this.httpClient.get(this.baseUrl + page.toString()) as Observable<SpaceShip[]>;
   }
 
 

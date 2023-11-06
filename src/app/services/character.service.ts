@@ -10,7 +10,7 @@ export class CharacterService {
 
   constructor(private httpClient: HttpClient) { }
 
-  baseUrl = 'https://swapi.py4e.com/api/';
+  baseUrl = 'https://swapi.py4e.com/api/people/?page=';
 
   vsUrl = 'https://starwars-visualguide.com/assets/img/';
 
@@ -25,7 +25,7 @@ export class CharacterService {
 
 
   getCharacters(page: number): Observable<Character[]> {
-    return this.httpClient.get(this.baseUrl + 'people/') as Observable<Character[]>;
+    return this.httpClient.get(this.baseUrl + page.toString()) as Observable<Character[]>;
   }
 
   getCharImg(characterId:number){
