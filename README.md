@@ -12,10 +12,10 @@ https://star-wars-info-app.vercel.app/
 ### Back-End 
 
 - This web application uses JSON server as its back-end.
-- Run `json-server --watch db.json`  in terminal. 
+- Run `json-server --watch db.json`  in the terminal. 
 
 To view the users registered once de JSON server is running, you can:
-- Look for the file [db.json] withing the files list.
+- Look for the file [db.json] within the files list.
 - Navigate to `http://localhost:3000/signupUsers`
 
 ### Front-End 
@@ -41,7 +41,7 @@ Images: https://starwars-visualguide.com
 
 ## Design Features
 
-- Responsive Design for use in diffetent devices 
+- Responsive Design for use in different devices 
 - The color range of the “Star Wars” brand.
-- Video and css animations to make the site more appealing.
+- Video and CSS animations to make the site more appealing.
 - Rounded edges in character cards make a friendlier user interface.
