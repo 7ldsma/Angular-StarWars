@@ -1,27 +1,47 @@
-# AngularStarWars
+# StarWars Info App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+This web application was developed to display information about the Star Wars Saga; specifically starships and characters.
 
-## Development server
+## Demo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Visit the following link
+https://star-wars-info-app.vercel.app/
 
-## Code scaffolding
+## How to run this project locally?
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Back-End 
 
-## Build
+- This web application uses JSON server as its back-end.
+- Run `json-server --watch db.json`  in terminal. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To view the users registered once de JSON server is running, you can:
+- Look for the file [db.json] withing the files list.
+- Navigate to `http://localhost:3000/signupUsers`
 
-## Running unit tests
+### Front-End 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Run `ng serve -o`  in terminal. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Running end-to-end tests
+## Source of Information
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Information: https://swapi.dev/
 
-## Further help
+Images: https://starwars-visualguide.com
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Technologies Used
+
+- Angular
+- JSON Server
+- Bootstrap
+- CSS
+
+## Functional Features
+
+- Infinite scroll to allow more information loading while the user scrolls down the page.
+
+## Design Features
+
+- Responsive Design for use in diffetent devices 
+- The color range of the “Star Wars” brand.
+- Video and css animations to make the site more appealing.
+- Rounded edges in character cards make a friendlier user interface.
