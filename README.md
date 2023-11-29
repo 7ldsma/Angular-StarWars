@@ -14,7 +14,7 @@ https://star-wars-info-app.vercel.app/
 - This web application uses JSON server as its back-end.
 - Run `json-server --watch db.json`  in the terminal. 
 
-To view the users registered once de JSON server is running, you can:
+To view the users registered once the JSON server is running, you can:
 - Look for the file [db.json] within the files list.
 - Navigate to `http://localhost:3000/signupUsers`
 
